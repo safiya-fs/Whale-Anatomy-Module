@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--_______________________________________________________________________________________________-->
+    <!--The following is basic page styling:-->
+    <!-- <style>
+        html,
+        body,
+        #app {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+    </style> -->
+    <!--This ensures the module takes up the whole screen and removes default margins/padding.-->
+
+    <!--_______________________________________________________________________________________________-->
+    <!--The following is the Vuetify CSS and Icon library:-->
+    <style>
+        .whale-panel-area {
+            background-color: #68c0de;
+        }
+    </style>
+
+    <!--this link and CSS inserts the Poppins text within the module-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+    <style> body {font-family: 'Poppins', sans-serif !important;} </style> 
+    <!--this CSS wraps the text in the navigation bar-->
+    <style>.wrap-text .v-list-item-title {white-space: normal !important; overflow: visible !important; text-overflow: unset !important;}</style>
+
+    <!--this CSS allows us to have a custom background colour behind the v-expansion-panels-->
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@3.x/dist/vuetify.min.css" rel="stylesheet">
+    <!--This first link gives us a style library (Vuetify) to make buttons, panels, and other parts look nice without us having to create them from scratch.-->
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <!--This second link gives us icons like the “information” icon that appears on buttons.-->
+
+    <!--_______________________________________________________________________________________________-->
+    <!--The following is the javascript library, which makes the page interactive:-->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!--This script adds Vue, the system that makes the page react to what the user does.-->
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@3.x/dist/vuetify.min.js"></script>
+    <!--This script adds Vuetify, which allows us to use the pre-made styled components.-->
+    <script src="app.js" defer></script>
+    <!--This script is our custom code (app.js) that tells the page how to behave.-->
+
+    <meta charset="UTF-8"><!--This makes sure special characters display correctly.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--This makes the page responsive on phones and computers.-->
+    <title>Dive into the world of whales!</title>
+</head>
+
+<body>
+    <div id="app"> <!--This is the main container for our app-->
+        <v-app>
+            <!--The following is specifics (such as colour, height, centering, and font) of the top app bar with the title of the module.-->
+            <v-app-bar style="background-color: #4E8D9C;" app>
+                <v-app-bar-nav-icon color="white" @click="drawer = !drawer"></v-app-bar-nav-icon>
+                <v-app-bar-title class="text-center font-weight-bold text-white">
+                    <div>Whale Anatomy, Maritime Threats, and Traditional Ecological Knowledge</div>
+                </v-app-bar-title>
+            </v-app-bar>
+
+            <!--this creates a navigation drawer that can open and close. It contains links to the other modules-->
+            <v-navigation-drawer v-model="drawer" class="text-white" style="background-color: #4E8D9C;">
+                <v-list-item class="wrap-text" href="https://artssci.github.io/Maritime-Commerce-and-Whale-Risks-Collective-App/index.html" title="Home"></v-list-item>
+                <v-divider></v-divider>
+                <v-list-item class="wrap-text" href="https://ameliag116.github.io/Ocean-Route-Explorer/" title="Ocean Route Explorer"></v-list-item>
+                <v-divider></v-divider>
+                <v-list-item class="wrap-text" href="https://nkkkkkkkkkkk.github.io/Temporal-Tides/" title="Temporal Tides"></v-list-item>
+                <v-divider></v-divider>
+                <v-list-item class="wrap-text" href="https://madsb04.github.io/Ocean-Commotion-/" title="Ocean Commotion"></v-list-item>
+                <v-divider></v-divider>
+                <v-list-item class="wrap-text" href="https://roco100.github.io/Jeopardy-Whale-Health/" title="Jeopardy: Whale Health"></v-list-item>
+                <v-divider></v-divider>
+                <v-list-item class="wrap-text" href="https://genevawhite.github.io/genevacoding/" title="Indigenous Perspectives in Reducing Whale Harm in Shipping Practice"></v-list-item>
+                <v-divider></v-divider>
+                <v-list-item class="wrap-text" href="https://alipanju12.github.io/Traditional-Ecological-Knowledge-connection-to-Whales/" title="Relationships Between Traditional and Western Ecological Knowledge in Whale Protection Practices"></v-list-item>
+            </v-navigation-drawer>
+
+            <!--This references the main content area.-->
+            <v-main class="whale-panel-area">
+                <!-- the div below is an empty container that is not necessary -->
+                <!-- <div style="height: 90px;"></div> -->
+                <!--This creates empty space at the top to create some distance between the app bar or top of the page and the expansion panels-->
+
+                <!--The following are the lines of codes corresponding to the drop down expansion panels: 
+                (1) “What is Traditional Ecological Knowledge?” where we wish to explain the value of this epistemic approach, what it means, how it developed, and its importance for understanding the impact of shipping routes and ships on whales, 
+                (2) "How to Explore the Module" where we wish to explain how to interact with the module (how the buttons work, what the info cards contain, and how the progress button works). 
+                For both panels, the text is hidden by default and only appears when the user clicks the title.-->
+                <v-container fluid class="mt-2">
+
+                    <v-expansion-panels>
+                        <!--The following is the first drop-down panel:-->
+                        <v-expansion-panel style="background-color: #EDF7BD" class="font-weight-bold">
+                            <v-expansion-panel-title class="font-weight-bold">
+                                What is Traditional Ecological Knowledge?
+                            </v-expansion-panel-title>
+                            <v-expansion-panel-text class="font-weight-regular">
+                                Traditional Ecological Knowledge (TEK) refers to enduring and passed down knowledge, practices, and beliefs that Indigenous peoples and local communities develop through generations of close relationships with the natural environment[1]. TEK includes detailed understanding of ecosystems, animal behaviour, season changes, and sustainable ways of interacting with nature, making it a critical resource in the fight against climate change and the protection of species[1]. TEK views humans, animals, and the environment as part of an interconnected system in which people have responsibilities toward the land and other living beings, unlike many Western scientific approaches that often study nature in isolated parts[1].
+                                <br>
+                                <br>
+                                When learning about whales, TEK is relevant because many Indigenous and local coastal communities have observed and interacted with whales for centuries[2]. These communities have developed deep knowledge about whales’ behaviour, migration routes, feeding patterns and relationships with marine ecosystems[2]. This knowledge can provide long-term ecological insights, unlike scientific research which often spans only a few decades[2]. 
+                                <br>
+                                <br>
+                                Moreover, TEK also emphasizes respect and stewardship toward whales, which establishes them not only as biological species, but as intelligent beings with cultural and spiritual significance[2]. Therefore, incorporating traditional ecological knowledge in sustainability efforts can deepen our understanding of whales and support more holistic approaches to marine conservation.                                 <br>
+                            </v-expansion-panel-text>
+                            <v-expansion-panel-text class="font-weight-regular" style="font-size: 10px">
+                                [1]Barberstock, R. K. (2024, April 15). Traditional ecological knowledge: The cornerstone of Indigenous climate adaptation in Canada. Indigenous Climate Hub.
+                                <br>
+                                [2]Huntington, H. P. (2010, March 26). Traditional ecological knowledge and beluga whales. Cultural Survival.
+                            </v-expansion-panel-text>
+                        </v-expansion-panel>
+                        <!--The following is the second drop-down panel:-->
+                        <v-expansion-panel style="background-color: #EDF7BD">
+                            <v-expansion-panel-title class="font-weight-bold">
+                                How to Explore the Module
+                            </v-expansion-panel-title>
+                            <v-expansion-panel-text class="font-weight-regular">
+                                1. Click on an icon to open a card and learn about a specific part of the whale. 
+                                <br>
+                                <br>
+                                2. Read the information about its cultural importance to certain Indigenous and local communities. Engage with the videos, pictures, and links within each card to learn more!
+                                <br>
+                                <br>
+                                3. Click the same icon again to close the card. 
+                                <br>
+                                <br>
+                                4. After closing a card, check the progress bar; it will increase each time. If you do not re-click on the icon to close the card then your progress will not be tracked in the progress bar. 
+                                <br>
+                                <br>
+                                5. Repeat steps 1–4 for all remaining icons. 
+                                <br>
+                                <br>
+                                6. Continue until the progress bar reaches 100%.
+                                <br>
+                                <br>
+                                7. The module is complete once you have closed the final card. 
+                          </v-expansion-panel-text>
+                          <v-expansion-panel-text class="font-weight-regular" style="font-size: 10px">
+                                Background Image Citation:
+                                <br>
+                                Martin, F. (2023). The Seattle Times. https://www.seattletimes.com/seattle-news/environment/how-the-humpback-whale-made-a-massive-comeback-in-the-salish-sea/
+                            </v-expansion-panel-text>
+                        </v-expansion-panel>
+                    </v-expansion-panels>
+                </v-container>
+
+                <!--_______________________________________________________________________________________________-->
+                <!--The following is a section for the background image and the interactive buttons:-->
+
+                <v-container fluid class="ma-0 pa-0" style="position: relative;" >
+                    <!--This allows buttons to be placed on top of the whale image, makes our component fill the page, and hides any content that spills outside the container of the page.-->
+                    <!--the first line of code within v-img makes the image fill the whale container without distortion, places the image at the back so the buttons appear on top, and helps find the button positions.-->
+                    <!--the second line of code within v-img makes it so that when the user clicks the image, a function runs to record the click location.-->
+
+                    <v-img :src="image" cover style="width: 100%; height: auto;" @click="findCoordinates" ></v-img>
+
+                    <template v-for="item in subjects" :key="item.title">
+                        <!--This allows for each item to represent a whale body part button & info card, and helps Vue track each item.-->
+                        <v-menu v-model="item.showCard" location="end" offset="10" :close-on-content-click="false">
+                            <!--This creates a pop-up menu (the info card) when the button is clicked., places the menu next to the button, and moves the menu slightly away from the button.-->
+                            <template v-slot:activator="{props}">
+                                <!--This defines what triggers the info card menu.-->
+                                <v-tooltip :text="item.title" location="top">
+                                    <!--This shows the label of the whale body part when you hover over the buttons.-->
+                                    <template v-slot:activator="{props: tooltipProps}">
+                                        <!--This makes the button clickable, displays them as icons only, makes them small, positions them at the exact coordinate ont he image, and makes sure the button is on top of the image.-->
+                                        <v-btn v-bind="{...props, ...tooltipProps}" icon size="small"
+                                            :style="{position: 'absolute', left: item.x + '%', top: item.y + '%', transform: 'translate(-50%, -50%)', zIndex:2}"
+                                            @click="updateProgress(item)">
+                                            <v-icon color="blue-darken-2">mdi-information</v-icon>
+                                            <!--This shows the “i” icon inside the button.-->
+                                        </v-btn>
+                                    </template>
+                                </v-tooltip>
+                            </template>
+
+
+                            <v-card width="300"> <!--This sets the width of the info card.-->
+                                <v-card-title>{{ item.title }}</v-card-title><!--This sets the info card’ title.-->
+                                <v-img v-if="item.image" :src="item.image" height="150" cover></v-img><!--This sets the image inside each info card.-->
+                                <v-card-text> {{ item.text1}} </v-card-text> <!--This and the following three lines set the text that appears inside the info card.-->
+                                <v-card-text>{{item.text2}}</v-card-text>
+                                <v-card-text>{{item.text3}}</v-card-text>
+                                <v-card-text>{{item.text4}}</v-card-text>
+
+                                <!--This sets the video inside the info card.-->
+                                <div v-if="item.video" style="position: relative; padding-bottom: 56.25%; height: 0;">
+
+                                    <iframe :src="item.video"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                        frameborder="0" referrerpolicy="strict-origin-when-cross-origin"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+
+                                <!--This sets a “Learn More” button that will be included in the info card. It will link to further resources like a website or article.-->
+                                <v-card-actions class="justify-center">
+                                    <v-btn :href="item.link" color="primary" rounded="xl" size="small"> Learn
+                                        More
+                                    </v-btn>
+                                </v-card-actions>
+
+                                <!--This and the following lines set the text that appears at the bottom of each card to display the citations.-->
+                                <v-card-text style="font-size: 10px">Image Citation: {{item.imageCitation}}</v-card-text>
+                                <v-card-text style="font-size: 10px"> {{item.citation1}} </v-card-text>
+                                <v-card-text style="font-size: 10px">{{item.citation2}}</v-card-text>
+                                <v-card-text style="font-size: 10px">{{item.citation3}}</v-card-text>
+                                <v-card-text style="font-size: 10px">{{item.citation4}}</v-card-text>
+                                <v-card-text style="font-size: 10px">{{item.citation5}}</v-card-text>
+                                <v-card-text style="font-size: 10px">{{item.citation6}}</v-card-text>
+                                <v-card-text style="font-size: 10px">{{item.citation7}}</v-card-text>
+                                <v-card-actions>
+                                    <template v-slot:activator="{props: tooltipProps}">
+                                        <!--This makes the button clickable, displays them as icons only, makes them small, positions them at the exact coordinate ont he image, and makes sure the button is on top of the image.-->
+                                        <v-btn v-bind="{...props, ...tooltipProps}" icon size="small"
+                                            :style="{position: 'absolute', left: item.x + '%', top: item.y + '%', transform: 'translate(-50%, -50%)', zIndex:2}"
+                                            @click="updateProgress(item)">
+                                        </v-btn>
+                                    </template>
+                                </v-card-actions>
+
+                            </v-card>
+
+                        </v-menu>
+
+                    </template>
+
+                </v-container>
+                
+                <!--_______________________________________________________________________________________________-->
+                <!--the following creates a pop-up that displays when the progress bar reaches 100%-->
+                <v-dialog v-model="showCongrats" width="400" persistent>
+                 <v-card class="text-center pa-4" style="background-color: #EDF7BD">
+                    <!--this is the text displayed in the card-->   
+                    <v-card-title class="text-h5 font-weight-bold">
+                            🎉 Congratulations!
+                        </v-card-title>
+                        <v-card-text>
+                            You explored all parts of the whale and learned about the connections to TEK! 
+                        </v-card-text>
+
+                        <!--this creates buttons at the bottom of the card that allows users to either reset the progress bar or close the card without resetting the progress bar-->
+                        <v-card-actions class="justify-center">
+                        <v-btn color="primary" rounded="xl" @click="restartExploration">
+                            Restart Exploration
+                        </v-btn>
+                        <v-btn variant="text" @click="showCongrats = false">
+                            Close
+                        </v-btn>
+                        </v-card-actions>
+                    </v-card>
+                </v-dialog>
+
+
+            </v-main>
+
+                <!--_______________________________________________________________________________________________-->
+                <!--The following is a section for the progress bar (showing how much of the module has been explored) that can be seen at the bottom of the screen:-->
+                <v-footer app height="40" style="background-color: #4E8D9C;">
+                <div class="text-caption text-white text-center font-weight-bold">
+                    Whale Exploration Progress:
+                </div>
+                <v-progress-linear :model-value="progress" :height="8" class="w-100" color="white"></v-progress-linear>
+                <!--This sets the progress bar to update as the user clicks on the whale parts.-->
+             </v-footer>
+        </v-app>
+
+    </div>
+
+
+</body>
+
+</html>
